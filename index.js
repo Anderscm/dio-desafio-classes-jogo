@@ -1,38 +1,40 @@
-// Escrevendo as classes de um Jogo
-
-// Criando a classe
-class Hero{
-    constructor(nome, idade, tipo, ataque){
-        this.nome = nome
-        this.idade = idade
-        this.tipo = tipo
-        
-        if(tipo === "mago"){
-            this.ataque = "magia"
-            
-        }else if(tipo === "guerreiro"){
-            this.ataque = "espada"
-           
-        }else if(tipo === "monge"){
-            this.ataque = "artes marciais"
-           
-        }else{
-            this.ataque = "shuriken"
-            
-        }
-    }
-    // método
-    atacar(){
-        console.log( `O ${this.tipo} atacou usando ${this.ataque}`)
+// Função para decidir o ataque com base no tipo usando switch
+function definirAtaque(tipo) {
+    switch (tipo) {
+        case "mago":
+            return "magia"
+        case "guerreiro":
+            return "espada"
+        case "monge":
+            return "artes marciais"
+        case "ninja":
+            return "shuriken"
     }
 }
 
-// Objeto
+class Hero {
+    constructor(nome, idade, tipo) {
+        this.nome = nome
+        this.idade = idade
+        this.tipo = tipo
+        this.ataque = definirAtaque(tipo)
+    }
+
+    atacar() {
+        console.log(`O ${this.tipo} atacou usando ${this.ataque}`)
+    }
+}
+
+// Criando heróis
 let mago = new Hero("Anderson", 22, "mago")
 let ninja = new Hero("Emerson", 25, "ninja")
 let guerreiro = new Hero("Alisson", 20, "guerreiro")
 let monge = new Hero("Emanuel", 15, "monge")
+
+
+// Executando ataques
 mago.atacar()
 ninja.atacar()
 guerreiro.atacar()
 monge.atacar()
+
